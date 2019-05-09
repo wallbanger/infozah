@@ -30,9 +30,24 @@
     export default {
         name: 'FormGenerator',
 
-        components: { NumberInput, SelectList, TextInput, DatePicker },
+        components: {
+            NumberInput,
+            SelectList,
+            TextInput,
+            DatePicker
+        },
 
-        props: ['schema', 'value', 'enumTypes'],
+        props: {
+            schema: {
+                required: true,
+                type: Object
+            },
+
+            enumTypes: {
+                required: true,
+                type: Object
+            },
+        },
 
         data() {
             return {

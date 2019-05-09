@@ -13,7 +13,12 @@
     export default {
         name: 'NumberInput',
 
-        props: ['placeholder', 'label', 'name', 'value', 'title'],
+        props: {
+            title: {
+                required: true,
+                type: String
+            },
+        },
 
         data() {
             return {

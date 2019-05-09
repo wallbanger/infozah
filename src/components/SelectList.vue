@@ -18,7 +18,21 @@
     export default {
         name: 'SelectList',
 
-        components: { Treeselect },
+        components: {
+            Treeselect
+        },
+
+        props: {
+            options: {
+                required: true,
+                type: Array
+            },
+
+            title: {
+                required: true,
+                type: String
+            },
+        },
 
         data() {
             return {
@@ -30,8 +44,6 @@
         created() {
             this.selectList = this.sortByNesting(this.options, 0);
         },
-
-        props: ['options', 'name', 'title'],
 
         methods: {
             onInput() {

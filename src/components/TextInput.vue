@@ -3,7 +3,6 @@
         <el-input
                 @input="onInput"
                 :placeholder="title"
-                :value="value"
                 v-model="input">
         </el-input>
     </div>
@@ -13,13 +12,23 @@
     export default {
         name: 'TextInput',
 
+        props: {
+            title: {
+                required: true,
+                type: String
+            },
+
+            validation: {
+                required: false,
+                type: Object
+            },
+        },
+
         data() {
             return {
                 input: ''
             }
         },
-
-        props: ['value', 'title', 'validation'],
 
         mounted() {
             this.$on('error', (err) => {
