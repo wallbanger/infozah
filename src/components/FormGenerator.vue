@@ -17,7 +17,6 @@
             </div>
         </div>
         <el-button type="primary" round @click="submit">Submit</el-button>
-        <!--<input type="submit" value="Отправить">-->
     </form>
 </template>
 
@@ -64,13 +63,11 @@
 
             checkForm(e) {
                 this.schema.attributes.forEach(item => {
-                    if (item.validation) {
-
-                        // this.errors[item.code] = Object.values(item.validation)[0];
-
+                    if (!item.validation) {
+                        this.errors[item.code] = null;
+                    } else {
                         if (!this.formData[item.code]) {
                             console.log('empty');
-                            item.error = true;
                         } else {
                             switch (Object.keys(item.validation)[0]) {
                                 case 'required':
@@ -84,12 +81,8 @@
                                     break;
                             }
                         }
-                    } else {
-                        this.errors[item.code] = null;
                     }
                 });
-
-                console.log(666, this.errors);
                 e.preventDefault();
             },
 
@@ -100,7 +93,6 @@
             },
 
             submit() {
-                // console.log(this.$refs.form);
                 console.log('%c Result: ', 'background: #222; color: #bada55');
                 console.log(this.formData);
             },
