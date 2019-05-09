@@ -17,7 +17,7 @@
             </div>
         </div>
         <el-button type="primary" round @click="submit">Submit</el-button>
-        <input type="submit" value="Отправить">
+        <!--<input type="submit" value="Отправить">-->
     </form>
 </template>
 
@@ -43,18 +43,6 @@
 
         methods: {
             updateForm(field, value) {
-                if (field.validation) {
-                    switch (Object.keys(field.validation)[0]) {
-                        case 'required':
-                            !value ? console.log("error") : null;
-                            break;
-                        case 'email':
-                            break;
-                        case 'pattern':
-                            break;
-                    }
-                }
-
                 this.$set(this.formData, field.code, value);
                 this.$emit('input', this.formData);
             },
@@ -97,7 +85,7 @@
             },
 
             submit() {
-                console.log(this.$refs.form);
+                // console.log(this.$refs.form);
                 console.log('%c Result: ', 'background: #222; color: #bada55');
                 console.log(this.formData);
             },
