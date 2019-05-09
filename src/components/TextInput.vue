@@ -31,14 +31,20 @@
         },
 
         mounted() {
-            this.$on('error', (err) => {
-                console.log('title', err);
-            })
+            this.$on('error', this.check)
+        },
+
+        beforeDestroy() {
+            this.$off('error', this.check)
         },
 
         methods: {
             onInput() {
                 this.$emit('input', this.input);
+            },
+
+            check(error) {
+                console.log('title', error);
             }
         },
     };
