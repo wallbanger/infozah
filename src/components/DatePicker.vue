@@ -22,7 +22,6 @@
         },
 
         methods: {
-
             choose(date) {
                 this.$emit('input', date);
             }

@@ -48,7 +48,10 @@
                 for (let i = 0; i < arr.length; ++i) {
                     arr[i].label = arr[i].title;
 
-                    if (!arr[i].parentId) arr[i].parentId = 0;
+                    if (!arr[i].parentId) {
+                        arr[i].parentId = 0;
+                    }
+
                     if (arr[i].parentId === parentId) {
                         let grandChildren = this.sortByNesting(arr, arr[i].id);
 
